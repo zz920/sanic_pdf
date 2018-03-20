@@ -74,10 +74,11 @@ class TaskController():
             url = BotoS3Client(_app.config.AWS_CONFIG).upload_to_s3(pdf_file)
         except Exception as e:
             ErrorLog.dump("Failed when uploading the file, tid is {}.".format(tid)) 
+            url = None
 
         self.remove_tmp_file(tid)
         end_time = time.time() - start_time
-        InfoLog.dump("Finished task in {:0.f}ms, tid is {}.".format(end_time * 1000, tid))
+        InfoLog.dump("Finished task in {:.0f}ms, tid is {}.".format(end_time * 1000, tid))
         return url
 
 
