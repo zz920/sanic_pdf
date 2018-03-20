@@ -4,7 +4,7 @@ import multiprocessing
 
 
 # ROOT FOLDER
-BASE_DIR = path.dirname(path.dirname(path.realpath(__file__))) 
+BASE_DIR = path.abspath(path.dirname(path.dirname(path.realpath(__file__)))) 
 
 # TMP FILE
 TMP_FOLDER = path.join(BASE_DIR, "tmp")
@@ -42,5 +42,5 @@ PDF_OPTION = {
     'reverse_declaration': '--no-outline --page-height 297mm --page-width 210mm  ' + PDF_PAGE_MARGIN +
                            ' --encoding UTF-8 --page-size A4 --dpi 300 --javascript-delay 0',
 }
-WKHTMLTOPDF_PATH = path.join(BASE_DIR, "/static/wkhtmltopdf")
+WKHTMLTOPDF_PATH = path.join(BASE_DIR, "static/wkhtmltopdf")
 RETRY_TIME = 3
