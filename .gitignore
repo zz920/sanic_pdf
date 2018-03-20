@@ -1,11 +1,22 @@
 # Python:
-*.py[cod]
+*.py[cod~]
 *.so
 *.egg
 *.egg-info
 dist
 build
+*/__pycache__
 
 # Tmp file:
 *.pdf
 *.html
+
+# Vim swap
+*.swp
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log*
