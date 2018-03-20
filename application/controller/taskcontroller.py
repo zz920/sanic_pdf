@@ -5,7 +5,6 @@ import asyncio
 import hashlib
 
 from uuid import uuid4 
-from manage import _app
 
 from application.wrapper.wkhtmlpdfwrapper import WKManager 
 from application.wrapper.botowrapper import BotoS3Client 

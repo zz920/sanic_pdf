@@ -14,7 +14,7 @@ def registry(app):
 
 
 def create_app(app_name="pdf_generation"):
-    app = Sanic(app_name, load_env=False, log_config=Default_Config.LOG_SETTING)
+    app = Sanic(app_name, load_env=False, log_config=Default_Config.LOG_CONFIG)
     app.config.from_object(Default_Config)
     append_url(app) 
     registry(app)
