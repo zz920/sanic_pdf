@@ -21,7 +21,7 @@ class TaskController():
         self._json = request_obj.json
         self._html = self._json.get("html_page", "")
         self._md5 = self._json.get("md5", "")
-        self._type = self._json.get("type", "standard")
+        self._type = self._json.get("type", "default")
 
     def is_valid(self):
         return True
