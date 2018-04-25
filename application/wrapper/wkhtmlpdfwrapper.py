@@ -1,8 +1,11 @@
 import random
 import asyncio
-from asyncio import create_subprocess_exec, subprocess
+from asyncio import create_subprocess_exec, subprocess, Lock
 
 from common.constant import CPU_CORE, WKHTMLTOPDF_PATH
+
+
+lock = Lock()
 
 
 class WKHtmlToPdf(object):
@@ -12,12 +15,14 @@ class WKHtmlToPdf(object):
         self.working = False
 
     async def create_subprocess(self):
+        await lock.acquire()
         self.process = await create_subprocess_exec(
             WKHTMLTOPDF_PATH,
             '--read-args-from-stdin', 
             stdin=subprocess.PIPE, 
             stderr=subprocess.PIPE
         )
+        lock.release()
    
     @property
     def isvalid(self):

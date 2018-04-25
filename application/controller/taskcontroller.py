@@ -24,7 +24,6 @@ class TaskController():
         self._type = self._json.get("type", "default")
 
     def is_valid(self):
-        return True
         return hashlib.md5(self._html.encode("utf-8")).hexdigest() == self._md5
     
     def file_prefix(self, tid):
